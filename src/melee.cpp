@@ -262,7 +262,7 @@ bool Character::handle_melee_wear( item_location shield, float wear_multiplier )
     } else {
         material_factor = shield->chip_resistance();
     }
-    int damage_chance = static_cast<int>( ( stat_factor * material_factor /
+    int damage_chance = static_cast<int>( ( static_cast<double>(stat_factor) * material_factor /
                                             ( wear_multiplier * enchant_multiplier ) ) );
     // DURABLE_MELEE items are made to hit stuff and they do it well, so they're considered to be a lot tougher
     // than other weapons made of the same materials.
