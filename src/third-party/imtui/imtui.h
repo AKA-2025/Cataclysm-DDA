@@ -41,7 +41,7 @@ struct TScreen {
 
     inline void clear() {
         if (data) {
-            memset(data, 0, nx*ny*sizeof(TCell));
+            memset(data, 0, static_cast<size_t>(nx)*ny*sizeof(TCell));
         }
     }
 
