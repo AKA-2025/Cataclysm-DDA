@@ -1040,7 +1040,7 @@ void Character::reach_attack( const tripoint &p, int forced_movecost )
         Creature *inter = creatures.creature_at( path_point );
         /** @EFFECT_MELEE decreases chance of hitting intervening target on reach attack */
         if( inter != nullptr &&
-            !x_in_y( ( target_size * target_size + 1 ) * skill,
+            !x_in_y( ( static_cast<float>(target_size) * target_size + 1 ) * skill,
                      ( inter->get_size() * inter->get_size() + 1 ) * 10 ) ) {
             // Even if we miss here, low roll means weapon is pushed away or something like that
             if( inter->has_effect( effect_pet ) || ( inter->is_npc() &&
